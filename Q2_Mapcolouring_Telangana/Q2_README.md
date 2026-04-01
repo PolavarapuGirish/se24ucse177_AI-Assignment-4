@@ -1,104 +1,57 @@
 ## Map Coloring Problem using CSP (Telangana - 33 Districts)
 
 ## Overview
-The objective is to assign colors to the 33 districts of Telangana such that no two adjacent districts have the same color.
+This project solves the Map Coloring Problem for the 33 districts of Telangana using Constraint Satisfaction Problem (CSP).
 
-This problem is solved using Constraint Satisfaction Problem (CSP) with a backtracking approach.
-
-## Districts Considered
-Adilabad  
-Kumuram Bheem Asifabad  
-Nirmal  
-Mancherial  
-Nizamabad  
-Kamareddy  
-Jagitial  
-Peddapalli  
-Karimnagar  
-Rajanna Sircilla  
-Siddipet  
-Medak  
-Sangareddy  
-Vikarabad  
-Hyderabad  
-Medchal-Malkajgiri  
-Rangareddy  
-Yadadri Bhuvanagiri  
-Jangaon  
-Mahabubabad  
-Warangal Rural  
-Warangal Urban  
-Jayashankar Bhupalpally  
-Mulugu  
-Bhadradri Kothagudem  
-Khammam  
-Suryapet  
-Nalgonda  
-Nagarkurnool  
-Wanaparthy  
-Jogulamba Gadwal  
-Narayanpet  
-Mahabubnagar  
-
-## Domain (Available Colors)
-Red  
-Green  
-Blue  
-Yellow  
-
-## Constraints (Adjacency Rules - Sample)
-Adilabad -> Kumuram Bheem, Nirmal  
-Kumuram Bheem -> Adilabad, Mancherial  
-Nirmal -> Adilabad, Nizamabad  
-Nizamabad -> Nirmal, Kamareddy, Jagitial  
-Kamareddy -> Nizamabad, Medak  
-Medak -> Kamareddy, Sangareddy, Siddipet  
-Sangareddy -> Medak, Vikarabad  
-Hyderabad -> Rangareddy, Medchal  
-Rangareddy -> Hyderabad, Vikarabad, Mahabubnagar  
-Mahabubnagar -> Rangareddy, Narayanpet, Wanaparthy  
-Nalgonda -> Suryapet, Yadadri  
-Khammam -> Bhadradri Kothagudem, Suryapet  
-
-(You can expand all district adjacencies similarly)
+The goal is to assign colors to districts such that no two adjacent districts share the same color.
 
 ## CSP Components
-Variables: 33 districts  
-Domain: Red, Green, Blue, Yellow  
-Constraints: Adjacent districts must have different colors  
+Variables: 33 districts of Telangana  
+Domain: Set of colors (user-defined or default)  
+Constraints: Adjacent districts must not have the same color  
+
+## Techniques Used
+Backtracking  
+AC-3 (Arc Consistency Algorithm)  
+Forward Checking  
+MRV (Minimum Remaining Values Heuristic)  
 
 ## Algorithm Used
-1. Select an unassigned district  
-2. Assign a color  
-3. Check constraints  
-4. Continue if valid  
-5. Backtrack if invalid  
+1. Initialize domains for all districts  
+2. Apply AC-3 to reduce domain values  
+3. Select district using MRV heuristic  
+4. Assign a valid color  
+5. Apply forward checking to reduce future conflicts  
+6. Continue recursively  
+7. Backtrack if any constraint fails  
 
 ## Implementation Details
 Language: Python 3  
-Technique: Backtracking  
+Input: Adjacency list from JSON file  
+Output: Valid color assignment  
 
 ## How to Run
-nano telangana_map.py  
 python3 telangana_map.py  
 
-## Sample Output
-Adilabad Red  
-Nirmal Green  
-Nizamabad Blue  
-Kamareddy Yellow  
-...  
-
 ## Features
-Handles large number of regions  
-Uses CSP approach  
-Backtracking ensures valid solution  
+Efficient constraint solving  
+Reduces unnecessary computations  
+Supports custom color input  
+Interactive menu-driven program  
 
-## Possible Improvements
-Use MRV heuristic  
-Forward checking  
-Arc consistency (AC-3)  
-Graph visualization  
+## Options Available
+1. Solve with current colors  
+2. Set custom colors  
+3. Display all districts  
+4. Display current colors  
+5. Exit  
+
+## Sample Output
+District                          Colour  
+-------------------------------- -----  
+Adilabad                          Red  
+Nirmal                            Green  
+...  
 
 ## Applications
 Scheduling  
@@ -107,4 +60,4 @@ Map design
 Timetabling  
 
 ## Conclusion
-This demonstrates how CSP can scale from small problems (Australia) to larger real-world maps like Telangana with 33 districts.
+The problem is efficiently solved using CSP with advanced techniques like AC-3, MRV, and forward checking, making it scalable for larger datasets like Telangana districts.

@@ -1,71 +1,54 @@
-Map Coloring Problem using CSP (Australia)
+## Map Coloring Problem using CSP (Australia)
 
-Overview
-
+## Overview
 The Map Coloring Problem is a classic example of a Constraint Satisfaction Problem (CSP) in Artificial Intelligence. The objective is to assign colors to regions on a map such that no two adjacent regions share the same color.
 
 This project solves the map coloring problem for the seven principal states and territories of Australia using a backtracking-based CSP approach.
 
-Regions Considered
-	•	WA (Western Australia)
-	•	NT (Northern Territory)
-	•	Q (Queensland)
-	•	SA (South Australia)
-	•	NSW (New South Wales)
-	•	V (Victoria)
-	•	T (Tasmania)
+## Regions Considered
+WA (Western Australia)
+NT (Northern Territory)
+Q (Queensland)
+SA (South Australia)
+NSW (New South Wales)
+V (Victoria)
+T (Tasmania)
 
-Domain (Available Colors)
+## Domain (Available Colors)
+Red
+Green
+Blue
 
-Each region can be assigned one of the following colors:
-	•	Red
-	•	Green
-	•	Blue
+## Constraints (Adjacency Rules)
+WA -> NT, SA  
+NT -> WA, SA, Q  
+SA -> WA, NT, Q, NSW, V  
+Q  -> NT, SA, NSW  
+NSW -> Q, SA, V  
+V -> SA, NSW  
+T -> None  
 
-Constraints (Adjacency Rules)
+## CSP Components
+Variables: WA, NT, Q, SA, NSW, V, T  
+Domain: Red, Green, Blue  
+Constraints: Neighboring regions must have different colors  
 
-No two neighboring regions can have the same color.
+## Algorithm Used
+1. Select an unassigned region  
+2. Assign a color  
+3. Check constraints  
+4. Continue if valid  
+5. Backtrack if invalid  
 
-Adjacency relationships:
-	•	WA → NT, SA
-	•	NT → WA, SA, Q
-	•	SA → WA, NT, Q, NSW, V
-	•	Q → NT, SA, NSW
-	•	NSW → Q, SA, V
-	•	V → SA, NSW
-	•	T → None
+## Implementation Details
+Language: Python 3  
+Technique: Backtracking  
 
-CSP Components
-	•	Variables: WA, NT, Q, SA, NSW, V, T
-	•	Domain: {Red, Green, Blue}
-	•	Constraints: Neighboring regions must have different colors
+## How to Run
+nano map_coloring.py  
+python3 map_coloring.py  
 
-Algorithm Used
-
-Backtracking Search Algorithm:
-	1.	Select an unassigned region
-	2.	Try assigning a color
-	3.	Check if it satisfies constraints
-	4.	If valid, continue to next region
-	5.	If not, backtrack and try another color
-
-Implementation Details
-	•	Language: Python 3
-	•	Approach: Recursive Backtracking
-	•	Constraint checking is done during assignment
-
-How to Run
-
-Step 1: Save the code
-
-nano map_coloring.py
-
-Step 2: Run the program
-
-python3 map_coloring.py
-
-Sample Output
-
+## Sample Output
 WA Red  
 NT Green  
 Q Red  
@@ -74,30 +57,22 @@ NSW Green
 V Red  
 T Red  
 
-Features
-	•	Simple CSP implementation
-	•	Beginner-friendly logic
-	•	Uses backtracking technique
-	•	Easy to extend
+## Features
+Simple implementation  
+Beginner-friendly  
+Uses backtracking  
 
-Possible Improvements
-	•	Implement MRV heuristic
-	•	Add Forward Checking
-	•	Use Arc Consistency (AC-3)
-	•	Add visualization
-	•	Support dynamic color inputs
+## Possible Improvements
+MRV heuristic  
+Forward Checking  
+AC-3  
+Visualization  
 
-Applications
-	•	Scheduling problems
-	•	Resource allocation
-	•	Timetabling
-	•	Puzzle solving (e.g., Sudoku)
+## Applications
+Scheduling  
+Resource allocation  
+Timetabling  
+Sudoku  
 
-Key Concepts
-	•	CSP: Assign values under constraints
-	•	Backtracking: Try, check, undo if needed
-	•	Constraint: Rule that must be satisfied
-
-Conclusion
-
-This project demonstrates how CSP can be used to solve the map coloring problem efficiently using backtracking while ensuring all constraints are satisfied.
+## Conclusion
+The problem is solved using CSP and backtracking ensuring all constraints are satisfied.

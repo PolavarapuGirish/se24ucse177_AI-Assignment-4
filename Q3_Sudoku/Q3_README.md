@@ -39,7 +39,7 @@ Language: Python 3
 Approach: CSP with optimization techniques  
 
 ## How to Run
-python3 sudoku.py  
+python3 Q3_Code.py  
 
 ## Features
 Efficient solving using constraint propagation  

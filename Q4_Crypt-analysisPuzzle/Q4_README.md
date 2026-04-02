@@ -60,7 +60,7 @@ All inputs are case-insensitive and converted to uppercase.
 - Prints mapping of letters to digits  
 
 ## How to Run
-python3 crypt.py  
+python3 Q4_Code.py  
 
 ## Features
 - Works for different crypt-arithmetic puzzles  

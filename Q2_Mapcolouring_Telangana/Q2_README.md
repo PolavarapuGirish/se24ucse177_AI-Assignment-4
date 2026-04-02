@@ -31,7 +31,7 @@ Input: Adjacency list from JSON file
 Output: Valid color assignment  
 
 ## How to Run
-python3 telangana_map.py  
+python3 Q2_Code.py  
 
 ## Features
 Efficient constraint solving  
